@@ -40,8 +40,8 @@ class PostAdapterRV : RecyclerView.Adapter<PostAdapterRV.PostViewHolder>() {
         var likes = view.findViewById<ImageView>(R.id.likeItem)
 
         fun setData(postData : PostAdd){
-            userName.text = postData.user.name
-            avatar.setImageResource(postData.user.avatar)
+            userName.text = postData.story.name
+            avatar.setImageResource(postData.story.avatar)
             post.setImageResource(postData.imageAdd)
             if (postData.likes == true)
                 likes.setImageResource(R.drawable.ic_liked_true)

@@ -3,14 +3,10 @@ package com.ru.listadapter.view.activity
 import TaskAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Toast
-import com.ru.listadapter.R
 import com.ru.listadapter.databinding.ActivityMainBinding
-import com.ru.listadapter.model.data.PostAdd
+import com.ru.listadapter.model.data.Story
 import com.ru.listadapter.model.loadData.ListOfAddedImages
-import com.ru.listadapter.model.loadData.user3
-import com.ru.listadapter.view.adapter.PostAdapterRV
+import com.ru.listadapter.model.loadData.listOfStories
 import com.ru.listadapter.view.adapter.StoryAdapter
 
 class MainActivity : AppCompatActivity() {
@@ -22,12 +18,34 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.rvStories.adapter = StoryAdapter()
+        //Stories Adapter
+        val storyAdapter = StoryAdapter()
+
+        binding.rvStories.adapter = storyAdapter
+
+        //Clicked on story event
+        //Changing seen false to true
+        storyAdapter.onStoryClicked = { clickedIndex ->
+            val newList = mutableListOf<Story>()
+            val previousList = storyAdapter.currentList
+
+            for (storyIndex in previousList.indices){
+                if (storyIndex == clickedIndex)
+                    newList.add(previousList[clickedIndex].copy(seen = true))
+                else
+                    newList.add(previousList[storyIndex])
+            }
+            storyAdapter.submitList(newList)
+        }
+
+
+        //List for Stories
+        var list = listOfStories
+
+        storyAdapter.submitList(list)
 
         binding.rvPosts.adapter = TaskAdapter().also {
             it.submitList(ListOfAddedImages)
         }
-
-
     }
 }

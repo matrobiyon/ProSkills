@@ -4,7 +4,7 @@ import com.ru.listadapter.R
 
 data class PostAdd(
     val id : Int,
-    val user : User,
+    val story : Story,
     val imageAdd: Int = R.drawable.welcome,
     var likes : Boolean = false
 )

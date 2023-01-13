@@ -5,32 +5,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp">
 
-    <androidx.cardview.widget.CardView
+
+    <FrameLayout
+
+        android:id="@+id/frameLayout"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/storyCardView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="50dp">
+        android:background="@drawable/stories_background_unchecked"
+        android:padding="6dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/storyCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="50dp">
 
 
-        <ImageView
-            android:scaleType="fitXY"
-            android:id="@+id/storyPhoto"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/avatarka"
-            />
+            <ImageView
 
+                android:id="@+id/storyPhoto"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/welcome" />
 
-    </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/storyText"
-        app:layout_constraintTop_toBottomOf="@+id/storyCardView"
-        app:layout_constraintLeft_toLeftOf="@+id/storyCardView"
-        app:layout_constraintRight_toRightOf="@+id/storyCardView"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintLeft_toLeftOf="@+id/frameLayout"
+        app:layout_constraintRight_toRightOf="@+id/frameLayout"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
