@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\7.4\\com.ru.multityperv.app-mergeDebugResources-28:\\layout\\post_with_image.xml",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\7.4\\com.ru.multityperv.app-main-31:\\layout\\post_with_image.xml"
+    },
+    {
+        "merged": "com.ru.multityperv.app-mergeDebugResources-28:/layout/post_with_text.xml",
+        "source": "com.ru.multityperv.app-main-31:/layout/post_with_text.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\7.4\\com.ru.multityperv.app-mergeDebugResources-28:\\layout\\post_with_text.xml",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\7.4\\com.ru.multityperv.app-main-31:\\layout\\post_with_text.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\7.4\\com.ru.multityperv.app-mergeDebugResources-28:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\7.4\\com.ru.multityperv.app-main-31:\\layout\\activity_main.xml"
+    }
+]
