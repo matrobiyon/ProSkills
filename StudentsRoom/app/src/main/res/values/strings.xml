@@ -2,4 +2,7 @@
     <string name="app_name">StudentsRoom</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="help">Вам помочь с<font color="#4287f5"> входом?</font></string>
+    <string name="notRegistered">Ещё не <font color="#4287f5">зарегистрированы?</font></string>
+    <string name="addNewStudent">Добавить нового студента</string>
 </resources>

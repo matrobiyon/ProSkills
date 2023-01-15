@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.ru.studentsroom.R
 import com.ru.studentsroom.databinding.FragmentHomeBinding
-import com.ru.studentsroom.databinding.FragmentSplashBinding
+import com.ru.studentsroom.databinding.FragmentNewStudentBinding
 import com.ru.studentsroom.room.StudentApplication
 import com.ru.studentsroom.viewModel.RoomViewModel
 import com.ru.studentsroom.viewModel.RoomViewModelFactory
 
-class HomeFragment : Fragment() {
+class NewStudentFragment : Fragment() {
 
-    //binding main page
-    private var _binding : FragmentHomeBinding? = null
+    //binding
+    private var _binding : FragmentNewStudentBinding? = null
     private val binding get() = _binding!!
 
     //Room View Model
@@ -25,22 +25,20 @@ class HomeFragment : Fragment() {
             (activity?.application as StudentApplication).database.SubjectsDao(),
             (activity?.application as StudentApplication).database.ConnectionDao())
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentHomeBinding.inflate(inflater,container,false)
+        _binding = FragmentNewStudentBinding.inflate(inflater,container,false)
+
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
+
 }
