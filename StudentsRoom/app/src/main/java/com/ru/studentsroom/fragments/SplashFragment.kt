@@ -1,16 +1,23 @@
 package com.ru.studentsroom.fragments
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.ru.studentsroom.R
 import com.ru.studentsroom.databinding.FragmentHomeBinding
 import com.ru.studentsroom.databinding.FragmentSplashBinding
 import com.ru.studentsroom.room.StudentApplication
 import com.ru.studentsroom.viewModel.RoomViewModel
 import com.ru.studentsroom.viewModel.RoomViewModelFactory
+import java.util.concurrent.Executor
 
 class SplashFragment : Fragment() {
 
@@ -19,11 +26,6 @@ class SplashFragment : Fragment() {
     private val binding get() = _binding!!
 
     //Room View Model
-    private val roomViewModel : RoomViewModel by activityViewModels {
-            RoomViewModelFactory((activity?.application as StudentApplication).database.StudentsDao(),
-                (activity?.application as StudentApplication).database.SubjectsDao(),
-                (activity?.application as StudentApplication).database.ConnectionDao())
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,15 +40,9 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        //Randomly adding some subjects
-//        roomViewModel.addNewSubject("Soc gigiena")
-//        roomViewModel.addNewSubject("Pediatriya",true)
-//        roomViewModel.addNewSubject("Psixiatriya")
-//        roomViewModel.addNewSubject("Khirurgiya")
-//        roomViewModel.addNewSubject("Neonatologiya", true)
-//        roomViewModel.addNewSubject("Kardiologiya", true)
-//        roomViewModel.addNewSubject("NeuroPatology")
-
+        Handler(Looper.getMainLooper()).postDelayed({
+            findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+        },1500)
 
     }
 

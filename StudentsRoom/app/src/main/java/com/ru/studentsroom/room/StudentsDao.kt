@@ -23,5 +23,6 @@ interface StudentsDao {
     @Query("SELECT * FROM student WHERE stipendiya < :stipendiya")
     fun stipendiyaLessThan(stipendiya : Int) : Flow<List<Student>>
 
-
+    @Query("SELECT COUNT(id) FROM student")
+    fun countId() : Flow<Int>
 }

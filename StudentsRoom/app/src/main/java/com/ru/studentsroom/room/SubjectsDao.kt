@@ -12,7 +12,10 @@ interface SubjectsDao {
     @Delete
     suspend fun delete(subjects: Subjects)
 
-    //Rewrite Query loved it, good feature :)
+    @Query("SELECT * FROM subjects ORDER BY id")
+    fun getSubjects() : Flow<List<Subjects>>
+
+    //Drop unused columns loved it, good feature :)
     @RewriteQueriesToDropUnusedColumns
     @Query("SELECT * FROM subjects INNER JOIN connection WHERE connection.student_id = :student_id")
     fun getSubjectWithId(student_id: Int) : Flow<List<Subjects>>

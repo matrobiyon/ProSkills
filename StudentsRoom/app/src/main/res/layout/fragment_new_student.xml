@@ -35,10 +35,10 @@
     <ScrollView
         android:id="@+id/containerForHomePage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="600dp"
         android:background="@drawable/rounded_background_top"
+        android:maxHeight="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
@@ -59,7 +59,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:inputType="textPersonName"
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,14 +66,16 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_stroke_blue"
                 android:hint="Имя"
+                android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textColorHint="@color/blue"
                 app:layout_constraintLeft_toLeftOf="@+id/registration"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/registration" />
+                app:layout_constraintTop_toBottomOf="@+id/registration"
+                android:textColor="@color/black"/>
 
             <EditText
-                android:inputType="textPersonName"
+                android:textColor="@color/black"
                 android:id="@+id/surname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -82,6 +83,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_stroke_blue"
                 android:hint="Фамилия"
+                android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textColorHint="@color/blue"
                 app:layout_constraintLeft_toLeftOf="@+id/name"
@@ -89,7 +91,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/name" />
 
             <EditText
-                android:inputType="textPersonName"
+                android:textColor="@color/black"
                 android:id="@+id/otchestvo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -97,55 +99,44 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_stroke_blue"
                 android:hint="Отчество"
+                android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textColorHint="@color/blue"
                 app:layout_constraintLeft_toLeftOf="@+id/name"
                 app:layout_constraintRight_toRightOf="@id/name"
                 app:layout_constraintTop_toBottomOf="@+id/surname" />
 
-            <FrameLayout
-                android:id="@+id/genderContainerM"
+
+            <RadioGroup
+                android:id="@+id/containerGender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="@drawable/rounded_background_all"
-                android:padding="20dp"
+                android:orientation="horizontal"
                 app:layout_constraintLeft_toLeftOf="@id/otchestvo"
-                app:layout_constraintTop_toBottomOf="@+id/otchestvo">
-
-                <TextView
-                    android:id="@+id/genderM"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="М"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/genderContainerJ"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="@drawable/rounded_background_all"
-                android:padding="20dp"
                 app:layout_constraintRight_toRightOf="@id/otchestvo"
                 app:layout_constraintTop_toBottomOf="@+id/otchestvo">
 
-                <TextView
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/genderM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="100dp"
+                    android:checked="true"
+                    android:text="М"
+                    android:textColor="@color/blue" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
                     android:id="@+id/genderJ"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ж"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/blue" />
 
-            </FrameLayout>
+            </RadioGroup>
+
 
             <EditText
+                android:textColor="@color/black"
                 android:id="@+id/age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -158,10 +149,10 @@
                 android:textColorHint="@color/blue"
                 app:layout_constraintLeft_toLeftOf="@+id/name"
                 app:layout_constraintRight_toRightOf="@id/name"
-                app:layout_constraintTop_toBottomOf="@+id/genderContainerM" />
+                app:layout_constraintTop_toBottomOf="@+id/containerGender" />
 
             <EditText
-                android:inputType="textPersonName"
+                android:textColor="@color/black"
                 android:id="@+id/university"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -169,6 +160,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_stroke_blue"
                 android:hint="Университет"
+                android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textColorHint="@color/blue"
                 app:layout_constraintLeft_toLeftOf="@+id/name"
@@ -176,6 +168,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/age" />
 
             <EditText
+                android:textColor="@color/black"
                 android:id="@+id/course"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -191,7 +184,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/university" />
 
             <EditText
-                android:inputType="textPersonName"
+                android:textColor="@color/black"
                 android:id="@+id/facultet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -199,12 +192,15 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_stroke_blue"
                 android:hint="Факультет"
+                android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textColorHint="@color/blue"
                 app:layout_constraintLeft_toLeftOf="@+id/name"
                 app:layout_constraintRight_toRightOf="@id/name"
                 app:layout_constraintTop_toBottomOf="@+id/course" />
+
             <EditText
+                android:textColor="@color/black"
                 android:id="@+id/stipendiya"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -219,6 +215,31 @@
                 app:layout_constraintRight_toRightOf="@id/name"
                 app:layout_constraintTop_toBottomOf="@+id/facultet" />
 
+            <TextView
+                android:id="@+id/subjectTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Предметы"
+                android:textColor="@color/blue"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@id/stipendiya"
+                app:layout_constraintRight_toRightOf="@id/stipendiya"
+                app:layout_constraintTop_toBottomOf="@id/stipendiya" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_subjects"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintLeft_toLeftOf="@id/subjectTitle"
+                app:layout_constraintRight_toRightOf="@id/subjectTitle"
+                app:layout_constraintTop_toBottomOf="@id/subjectTitle"
+                app:spanCount="2"
+                tools:listitem="@layout/subject_item" />
+
             <FrameLayout
                 android:id="@+id/containerSubmitRegistration"
                 android:layout_width="wrap_content"
@@ -226,10 +247,10 @@
                 android:layout_margin="20dp"
                 android:background="@drawable/rounded_background_all"
                 android:padding="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="@id/stipendiya"
                 app:layout_constraintRight_toRightOf="@id/stipendiya"
-                app:layout_constraintTop_toBottomOf="@+id/stipendiya"
-                app:layout_constraintBottom_toBottomOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/rv_subjects">
 
                 <TextView
                     android:id="@+id/submitRegistration"
