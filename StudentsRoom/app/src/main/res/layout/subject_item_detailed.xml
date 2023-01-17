@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="30dp">
+
+    <TextView
+        android:id="@+id/subject_name"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Биология"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+    <CheckBox
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:clickable="false"
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Эгзамен"
+        android:checked="true"/>
+
+
+</RelativeLayout>

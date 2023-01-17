@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/homeFragment"
+        app:showAsAction="always"
+        android:title="Главная"
+        android:icon="@drawable/ic_home"/>
+
+    <item android:id="@+id/facultyFragment"
+        app:showAsAction="always"
+        android:title="Факультет"
+        android:icon="@drawable/ic_faculty"/>
+
+    <item android:id="@+id/genderFragment"
+    app:showAsAction="always"
+    android:title="Пол"
+    android:icon="@drawable/ic_gender"/>
+
+    <item android:id="@+id/stipendiyaFragment"
+    app:showAsAction="always"
+    android:title="Стипендия"
+    android:icon="@drawable/ic_stipendiya"/>
+
+</menu>

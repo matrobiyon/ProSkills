@@ -1,8 +1,13 @@
 package com.ru.studentsroom.room
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.versionedparcelable.ParcelField
+import androidx.versionedparcelable.VersionedParcelize
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "student")
 data class Student(
     @PrimaryKey(autoGenerate = true)
@@ -16,4 +21,4 @@ data class Student(
     var fakultet : String,
     var stipendiya : Int,
     val age : Int?,
-)
+) : Parcelable

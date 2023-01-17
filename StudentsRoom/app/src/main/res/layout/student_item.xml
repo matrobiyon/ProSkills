@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/student_image"
+
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/avatarka"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:textSize="16sp"
+        android:id="@+id/student_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/student_image"
+        app:layout_constraintTop_toTopOf="@id/student_image"
+        android:text="Имя и фамилия"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginLeft="5dp"
+        />
+    <TextView
+        android:id="@+id/student_course_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Курс:"
+        app:layout_constraintLeft_toLeftOf="@id/student_name"
+        app:layout_constraintTop_toBottomOf="@id/student_name"
+        android:textSize="16sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/student_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/student_course_label"
+        android:textSize="16sp"
+        android:layout_marginRight="50dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/student_university_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Университет:"
+        app:layout_constraintLeft_toLeftOf="@id/student_name"
+        app:layout_constraintTop_toBottomOf="@id/student_course_label"
+        android:textSize="16sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/student_university"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TGMU"
+        app:layout_constraintLeft_toLeftOf="@id/student_course"
+        app:layout_constraintRight_toRightOf="@id/student_course"
+        app:layout_constraintTop_toTopOf="@id/student_university_label"
+        app:layout_constraintBottom_toBottomOf="@id/student_university_label"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        />
+
+
+    <TextView
+        android:background="@drawable/custom_shape_cheked"
+        android:id="@+id/information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/student_course_label"
+        app:layout_constraintTop_toBottomOf="@id/student_university_label"
+        android:layout_marginTop="20dp"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="15dp"
+        android:text="ПОДРОБНЕЕ"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,23 +1,25 @@
 package com.ru.studentsroom.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.ru.studentsroom.R
 import com.ru.studentsroom.adapter.StudentsAdapter
-import com.ru.studentsroom.databinding.FragmentHomeBinding
+import com.ru.studentsroom.databinding.FragmentFacultyBinding
 import com.ru.studentsroom.room.StudentApplication
 import com.ru.studentsroom.viewModel.RoomViewModel
 import com.ru.studentsroom.viewModel.RoomViewModelFactory
 
-class HomeFragment : Fragment() {
+class FacultyFragment : Fragment() {
 
     //binding
-    private var _binding : FragmentHomeBinding? = null
+    private var _binding : FragmentFacultyBinding? = null
     private val binding get() = _binding!!
 
     //Room View Model
@@ -32,22 +34,31 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentHomeBinding.inflate(inflater,container,false)
+        _binding = FragmentFacultyBinding.inflate(inflater,container,false)
 
-        val adapter = StudentsAdapter()
+        //Getting faculty text from user
+        var faculty: String
 
-        roomViewModel.listOfStudents.observe(viewLifecycleOwner){
-            adapter.submitList(it)
+        binding.poisk.doOnTextChanged { text, _, _, _ ->
+            faculty = text.toString()
+            Log.d("MyERROR", "$faculty")
+            val adapter = StudentsAdapter()
+
+            adapter.onPodrobneeClicked = {
+                val action = FacultyFragmentDirections.actionFacultyFragmentToPodrobnoFragment(it)
+                findNavController().navigate(action)
+            }
+
+            roomViewModel.listOfStudents.observe(viewLifecycleOwner){
+                binding.rvStudentsHome.adapter = adapter
+                adapter.submitList(it.filter {
+                    it.fakultet == faculty.lowercase()
+                })
+            }
         }
-        adapter.onPodrobneeClicked = {
-            val action = HomeFragmentDirections.actionHomeFragmentToPodrobnoFragment(it)
-            findNavController().navigate(action)
-        }
 
-        binding.rvStudentsHome.adapter = adapter
 
         return binding.root
-
     }
 
     override fun onDestroy() {

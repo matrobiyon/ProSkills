@@ -10,11 +10,8 @@ import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import com.ru.studentsroom.R
 import com.ru.studentsroom.adapter.SubjectsAdapter
-import com.ru.studentsroom.databinding.FragmentHomeBinding
 import com.ru.studentsroom.databinding.FragmentNewStudentBinding
 import com.ru.studentsroom.room.StudentApplication
 import com.ru.studentsroom.room.Subjects
@@ -40,18 +37,6 @@ class NewStudentFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentNewStudentBinding.inflate(inflater,container,false)
-
-        //Randomly adding some subjects
-//        roomViewModel.addNewSubject("Soc gigiena")
-//        roomViewModel.addNewSubject("Pediatriya",true)
-//        roomViewModel.addNewSubject("Psixiatriya")
-//        roomViewModel.addNewSubject("Khirurgiya")
-//        roomViewModel.addNewSubject("Neonatologiya", true)
-//        roomViewModel.addNewSubject("Kardiologiya", true)
-//        roomViewModel.addNewSubject("NeuroPatology")
-
-
-
 
         //Adapter
         val adapter = SubjectsAdapter()
@@ -119,7 +104,7 @@ class NewStudentFragment : Fragment() {
             val checkedSubjects = checkSubjects(selectedSubjects.size)
 
             //Getting gender of Student
-            val gender = if (binding.genderM.isChecked) "M" else "Ж"
+            val gender = if (binding.genderM.isChecked) "M" else "J"
 
             //Getting student Id from room which will be declared later
             if (notEmptyFields && checkedSubjects){
@@ -132,13 +117,13 @@ class NewStudentFragment : Fragment() {
                     roomViewModel.addNewConnection(lastId,selectedSubjects)
 
                     //Transition back
-                    val homeFragment = HomeFragment()
+                    val registrationFragment = RegistrationFragment()
                     requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
                         R.anim.slide_in,
                         R.anim.fade_out,
                         R.anim.fade_in,
                         R.anim.slide_out
-                    ).replace(R.id.fragmentContainerView,homeFragment)
+                    ).replace(R.id.fragmentContainerView,registrationFragment)
                         .addToBackStack(null)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit()

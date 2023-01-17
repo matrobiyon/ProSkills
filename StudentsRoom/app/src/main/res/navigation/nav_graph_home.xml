@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_home"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.ru.studentsroom.fragments.HomeFragment"
+        android:label="Главная страницв"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_podrobnoFragment"
+            app:destination="@id/podrobnoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/facultyFragment"
+        android:name="com.ru.studentsroom.fragments.FacultyFragment"
+        android:label="Факультет"
+        tools:layout="@layout/fragment_faculty" >
+        <action
+            android:id="@+id/action_facultyFragment_to_podrobnoFragment"
+            app:destination="@id/podrobnoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/genderFragment"
+        android:name="com.ru.studentsroom.fragments.GenderFragment"
+        android:label="Пол"
+        tools:layout="@layout/fragment_gender" >
+        <action
+            android:id="@+id/action_genderFragment_to_podrobnoFragment"
+            app:destination="@id/podrobnoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stipendiyaFragment"
+        android:name="com.ru.studentsroom.fragments.StipendiyaFragment"
+        android:label="Стипендия"
+        tools:layout="@layout/fragment_stipendiya" >
+        <action
+            android:id="@+id/action_stipendiyaFragment_to_podrobnoFragment"
+            app:destination="@id/podrobnoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/podrobnoFragment"
+        android:name="com.ru.studentsroom.fragments.PodrobnoFragment"
+        android:label="fragment_podrobno"
+        tools:layout="@layout/fragment_podrobno" >
+        <argument
+            android:name="student"
+            app:argType="com.ru.studentsroom.room.Student" />
+    </fragment>
+</navigation>
