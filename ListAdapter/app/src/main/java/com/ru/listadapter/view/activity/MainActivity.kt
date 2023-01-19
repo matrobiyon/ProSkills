@@ -1,6 +1,7 @@
 package com.ru.listadapter.view.activity
 
 import TaskAdapter
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ru.listadapter.databinding.ActivityMainBinding
@@ -36,6 +37,9 @@ class MainActivity : AppCompatActivity() {
                     newList.add(previousList[storyIndex])
             }
             storyAdapter.submitList(newList)
+
+            var intent = Intent(this,StoryActivity::class.java)
+            startActivity(intent)
         }
 
 

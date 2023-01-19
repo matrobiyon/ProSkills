@@ -23,7 +23,6 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="50dp">
 
-
             <ImageView
 
                 android:id="@+id/storyPhoto"
